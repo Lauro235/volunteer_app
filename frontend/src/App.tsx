@@ -2,9 +2,10 @@ import { useState, useEffect } from "react"
 import { ISessionData } from "./data/sessionData";
 import './App.css'
 
+import AppCalendar from "./Components/AppCalendar/AppCalendar";
+
 function App() {
   const [sessions, setSessions] = useState<ISessionData[] | null>(null);
-  // console.log(sessions);
   
   useEffect(() => {
     const setData = async () => {
@@ -17,7 +18,11 @@ function App() {
 
   return (
     <>
-      <h1 className='text-4xl font-bold underline'>Volunteer App</h1>
+      {/* <h1 className='text-4xl font-bold underline'>Volunteer App</h1> */}
+
+      <div className="border-2 border-black rounded-3xl">
+        <AppCalendar />
+      </div>
     </>
   )
 }
