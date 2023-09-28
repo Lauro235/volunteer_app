@@ -2,17 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
+import { setupWorker } from 'msw'
+import { handlers } from './mocks/handlers.ts'
+
+export const worker = process.env.NODE_ENV === "development" ? setupWorker(...handlers) : undefined;
 
 if (process.env.NODE_ENV === 'development') {
-  import('./mocks/browser.ts')
-  .then(module => {
-    module.worker.start();
-    return () => {
-      module.worker.stop();
-    }
-  })
-  .catch(err => console.log(err)
-  );
+  worker?.start();
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
