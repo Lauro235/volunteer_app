@@ -18,10 +18,14 @@ const CalendarForm = ({ selectedDate }: ICalenderForm) => {
       </div>
       <button
         type="button"
-        className="bg-green-600/50 w-fit justify-self-center mt-4"
+        className="bg-green-600/50 w-fit justify-self-center mt-4 sm:hidden"
       >
         Book Session
       </button>
+      <div className="hidden sm:block">
+        <p>Want to book a regular slot?</p>
+        <button className="bg-safety hover:bg-hover" type="button">Yes please!</button>
+      </div>
     </div>
   );
 };

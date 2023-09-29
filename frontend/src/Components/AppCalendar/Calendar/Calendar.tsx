@@ -34,7 +34,7 @@ function Calendar({today, selectedDate, selectedDateHandler}: ICalender) {
                 <h1
                   className={cn(
                     currentMonth ? "" : "text-gray-400/50",
-                    isCurrentDay ? "bg-[#0C41FF] text-white" : "",
+                    isCurrentDay ? "bg-hover text-white" : "",
                     selectedDate.toDate().toDateString() ===
                       date.toDate().toDateString() && !isCurrentDay
                       ? "bg-black text-white"
