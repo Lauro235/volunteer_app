@@ -24,7 +24,7 @@ const CalendarForm = ({ selectedDate }: ICalenderForm) => {
       </button>
       <div className="hidden sm:block">
         <p>Want to book a regular slot?</p>
-        <button className="bg-safety hover:bg-hover" type="button">Yes please!</button>
+        <button className="bg-safety hover:bg-hovercolor" type="button">Yes please!</button>
       </div>
     </div>
   );

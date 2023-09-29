@@ -13,7 +13,7 @@ const CalendarSessionSlot = ({ slot }: ICalenderSessionSlot) => {
       </div>
       <div className="flex sm:flex-1 sm:items-center sm:justify-center bg-gray-400">
         <input type="checkbox" className="self-end sm:hidden"/>
-        <button className="hidden sm:block hover:bg-hover">
+        <button className="hidden sm:block hover:bg-hovercolor">
         {
 
           slot === "morning" ?
