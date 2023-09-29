@@ -1,8 +1,8 @@
 import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 import Calendar from "./Calendar/Calendar";
-import CalenderForm from "./CalenderForm/CalenderForm";
-import CalenderHandlers from "./CalenderHandlers/CalenderHandlers";
+import CalendarForm from "./CalendarForm/CalendarForm";
+import CalendarHandlers from "./CalendarHandlers/CalendarHandlers";
 
 const AppCalendar = () => {
   const currentDate: Dayjs = dayjs();
@@ -27,18 +27,23 @@ const AppCalendar = () => {
   };
 
   return (
-    <div className="flex border-solid border-black border-2 gap-2">
+    <div className="grid sm:flex border-solid border-black border-2 gap-2">
       {/* <Test /> */}
-        <CalenderForm selectedDate={selectedDate} />
+        <div className="hidden sm:flex">
+          <CalendarForm selectedDate={selectedDate} />
+        </div>
       <div className="self-stretch justify-self-stretch p-[1px] bg-black"></div>
       <div className="grid p-2">
-        <CalenderHandlers today={today} previousMonthHandler={previousMonthHandler} currentDayHandler={currentDayHandler} nextMonthHandler={nextMonthHandler} />
+        <CalendarHandlers today={today} previousMonthHandler={previousMonthHandler} currentDayHandler={currentDayHandler} nextMonthHandler={nextMonthHandler} />
         <Calendar
           today={today}
           selectedDate={selectedDate}
           selectedDateHandler={selectedDateHandler}
         />
       </div>
+      <div className="grid sm:hidden">
+          <CalendarForm selectedDate={selectedDate} />
+        </div>
     </div>
   );
 };

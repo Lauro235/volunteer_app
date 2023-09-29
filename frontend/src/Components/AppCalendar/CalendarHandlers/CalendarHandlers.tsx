@@ -9,7 +9,7 @@ interface ICalenderHandlers {
   nextMonthHandler: () => void;
 }
 
-const CalenderHandlers = ({
+const CalendarHandlers = ({
   today,
   previousMonthHandler,
   currentDayHandler,
@@ -39,4 +39,4 @@ const CalenderHandlers = ({
   );
 };
 
-export default CalenderHandlers;
+export default CalendarHandlers;
