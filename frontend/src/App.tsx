@@ -24,7 +24,7 @@ function App() {
       {/* <h1 className='text-4xl font-bold underline'>Volunteer App</h1> */}
 
       <div className="overflow-clip border-2 border-black rounded-3xl">
-        <AppCalendar />
+        <AppCalendar sessions={sessions} />
       </div>
     </>
   );
