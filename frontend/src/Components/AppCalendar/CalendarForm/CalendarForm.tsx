@@ -20,7 +20,7 @@ const CalendarForm = ({ selectedDate }: ICalenderForm) => {
         <p className="text-sm">0/2 bookings made for this date.</p>
       </div>
       <div className="hidden gap-5 sm:grid">
-        <p>Want to book a regular slot?</p>
+        <p className="w-[95%] text-[14px] mx-auto">Want to book a regular slot?</p>
         <button className="bg-safety hover:bg-hover justify-self-center hover:text-white" type="button">Yes please!</button>
       </div>
     </div>

@@ -23,7 +23,7 @@ function App() {
   /*
     Keep a single column design until you get to xl.
   
-      'xl': '1280px',
+      'lg': '1024px',
       // => @media (min-width: 1280px) { ... }
   */
   

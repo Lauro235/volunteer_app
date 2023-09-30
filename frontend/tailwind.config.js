@@ -7,8 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        'col-primary': "white",
-        'col-contrast': "#DADADB",
+        'clr-primary': "white",
+        'clr-contrast': "#DADADB",
+        'clr-gradOne': "#B2884C",
+        'clr-gradTwo': "#686F77",
         hover: '#0C41FF',
         safety: '#66ff66',
       },
