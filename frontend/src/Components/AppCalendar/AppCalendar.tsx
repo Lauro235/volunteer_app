@@ -27,7 +27,7 @@ const AppCalendar = () => {
   };
 
   return (
-    <div className="grid sm:flex border-solid border-black border-2 gap-2">
+    <div className="grid gap-2 border-2 border-black border-solid sm:flex">
       {/* <Test /> */}
         <div className="hidden sm:flex">
           <CalendarForm selectedDate={selectedDate} />

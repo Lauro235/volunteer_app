@@ -28,11 +28,11 @@ function App() {
   */
   
   return (
-    <>
+    <div className="grid justify-center gap-4">
       <MobileHeader />
       <Navigation />
       <AppCalendar />
-    </>
+    </div>
   );
 }
 
