@@ -11,7 +11,7 @@ interface ICalender {
 
 function Calendar({ today, selectedDate, selectedDateHandler }: ICalender) {
   const { arrayOfDates } = generateDates(today.month(), today.year());
-  const weekDays = ["M", "T", "W", "T", "F", "S", "S"];
+  const weekDays = ["m", "t", "w", "t", "f", "s", "s"];
 
   console.log(generateDates());
   
@@ -19,11 +19,11 @@ function Calendar({ today, selectedDate, selectedDateHandler }: ICalender) {
   return (
     <>
       <div className="grid overflow-clip">
-        <div className="w-full grid grid-cols-7">
+        <div className="grid w-full grid-cols-7">
           {weekDays.map((day, index) => {
             return (
               <h2
-                className="text-sm text-slate-500 h-12 w-12 grid place-content-center"
+                className="grid w-12 h-12 text-sm text-[#333] place-content-center"
                 key={index}
               >
                 {day}
@@ -31,7 +31,7 @@ function Calendar({ today, selectedDate, selectedDateHandler }: ICalender) {
             );
           })}
         </div>
-        <div className="w-full grid grid-cols-7 gap-y-3">
+        <div className="grid w-full grid-cols-7 gap-y-3">
           {arrayOfDates.map(({ date, isCurrentDay, currentMonth }, index) => {
             return (
               <div className="grid place-content-center" key={index}>
@@ -41,9 +41,9 @@ function Calendar({ today, selectedDate, selectedDateHandler }: ICalender) {
                     date.toDate().toDateString() && !isCurrentDay
                     ? "bg-black text-white"
                     : "",
-                    currentMonth ? "" : "text-gray-400/50",
+                    currentMonth ? "font-bold" : "font-medium",
                     isCurrentDay ? "bg-hover text-white" : "",
-                    "h-8 w-8 grid font-bold sm:font-normal place-content-center rounded-full hover:bg-black hover:text-white hover:cursor-pointer text-[16px] transition-colors",
+                    "text-base h-7 w-7 grid sm:font-normal place-content-center rounded-full hover:bg-black hover:text-white hover:cursor-pointer transition-colors",
                   )}
                   onClick={() => selectedDateHandler(date)}
                 >

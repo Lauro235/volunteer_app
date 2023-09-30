@@ -12,9 +12,11 @@ const CalendarForm = ({ selectedDate }: ICalenderForm) => {
         <CalendarSessionSlot slot="morning" />
         <CalendarSessionSlot slot="evening" />
       </div>
-      <div className="grid gap-5 text-xl sm:hidden">
-        <p className="text-lg font-medium">I would like to book a session for...</p>
-        <p className="font-bold">{selectedDate.toDate().toDateString()}</p>
+      <div className="grid text-[#222] mt-4 gap-5 sm:hidden">
+        <div>
+          <p className="text-sm font-medium">I would like to book a session for...</p>
+          <p className="text-base font-bold">{selectedDate.toDate().toDateString()}</p>
+        </div>
         <p className="text-sm">0/2 bookings made for this date.</p>
       </div>
       <div className="hidden gap-5 sm:grid">

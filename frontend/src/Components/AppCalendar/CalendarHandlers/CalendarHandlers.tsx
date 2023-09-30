@@ -16,7 +16,7 @@ const CalendarHandlers = ({
   nextMonthHandler,
 }: ICalenderHandlers) => {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between px-3">
       <div className="text-left">
         <h2 className="font-bold sm:font-semibold">
           {months[today.month()]}, {today.year()}
@@ -31,7 +31,7 @@ const CalendarHandlers = ({
           Today
         </h2>
         <GrFormNext
-          className=" w-5 h-5 cursor-pointer"
+          className="w-5 h-5 cursor-pointer "
           onClick={nextMonthHandler}
         />
       </div>

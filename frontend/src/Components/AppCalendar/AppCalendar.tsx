@@ -27,13 +27,13 @@ const AppCalendar = () => {
   };
 
   return (
-    <div className="grid gap-2 border-2 border-black border-solid sm:flex">
+    <div className="grid gap-2 py-4 rounded-2xl bg-col-contrast sm:flex">
       {/* <Test /> */}
         <div className="hidden sm:flex">
           <CalendarForm selectedDate={selectedDate} />
         </div>
-      <div className="self-stretch justify-self-stretch p-[1px] bg-black"></div>
-      <div className="grid p-2">
+      {/* <div className="self-stretch justify-self-stretch p-[1px] bg-black"></div> */}
+      <div className="grid">
         <CalendarHandlers today={today} previousMonthHandler={previousMonthHandler} currentDayHandler={currentDayHandler} nextMonthHandler={nextMonthHandler} />
         <Calendar
           today={today}
