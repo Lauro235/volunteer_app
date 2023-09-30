@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { ISessionData } from "./data/sessionData";
 import "./App.css";
 
@@ -19,14 +19,14 @@ function App() {
   }, []);
 
   console.log(sessions);
-  
+
   /*
     Keep a single column design until you get to xl.
   
       'lg': '1024px',
       // => @media (min-width: 1280px) { ... }
   */
-  
+
   return (
     <div className="grid justify-center gap-4">
       <MobileHeader />

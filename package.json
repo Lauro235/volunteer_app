@@ -1,8 +1,15 @@
 {
+  "name": "volunteer_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "dependencies": {
     "cors": "^2.8.5"
   },
   "devDependencies": {
     "@types/cors": "^2.8.14"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

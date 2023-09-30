@@ -5,17 +5,20 @@ import CalendarForm from "./CalendarForm/CalendarForm";
 import CalendarHandlers from "./CalendarHandlers/CalendarHandlers";
 import Availability from "../Availability/Availability";
 
-import { useDimensions } from "../../hooks/useDimensions";
+// import { useElementDimensions } from "../../hooks/useElementDimensions";
+// import useBrowserWindowDimensions from "../../hooks/useBrowserWindowDimensions";
 
 const AppCalendar = () => {
   const currentDate: Dayjs = dayjs();
   const [today, setToday] = useState(currentDate);
   const [selectedDate, setSelectedDate] = useState(currentDate);
 
-  // how to destructure when the second value could be undefined?
-  const [measurements, dimensions] = useDimensions();
-  console.log(dimensions);
-  
+  // const {width: windowWidth, height: windowHeight} = useBrowserWindowDimensions();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // const [containerRef, dimensions] = useElementDimensions();
+  // const [containerRef, dimensions] = useElementDimensions();
+  // console.log(dimensions);
 
   const previousMonthHandler = () => {
     setToday(today.month(today.month() - 1));
@@ -35,33 +38,63 @@ const AppCalendar = () => {
   };
 
   return (
-    <div className="contents">
-      <div ref={measurements} className="grid gap-2 px-2 py-4 rounded-2xl bg-clr-contrast sm:flex">
-        {/* <Test /> */}
-        <div className="hidden sm:flex">
-          <CalendarForm selectedDate={selectedDate} />
-        </div>
-        {/* <div className="self-stretch justify-self-stretch p-[1px] bg-black"></div> */}
-        <div className="grid">
-          <CalendarHandlers
-            today={today}
-            previousMonthHandler={previousMonthHandler}
-            currentDayHandler={currentDayHandler}
-            nextMonthHandler={nextMonthHandler}
-          />
-          <Calendar
-            today={today}
-            selectedDate={selectedDate}
-            selectedDateHandler={selectedDateHandler}
-          />
-        </div>
-        <div className="grid sm:hidden">
-          <CalendarForm selectedDate={selectedDate} />
-        </div>
-      </div>
+    // container
+    <div className="flex flex-col">
+      {/* wrapper */}
+      <div className="flex w-full relative">
+        {/* content wrapper */}
+        <div className="w-screen h-full">
+          {/* wrapper spacing */}
+          <div className="app-margin">
+            {/* <div ref={containerRef} className="flex"> */}
+            {/*
+                two elements need to be translating
+                translating according to state
+                a simple counter that will go between 0 and 1
+              */}
 
-      <div className="contents lg:hidden">
-        <Availability />
+
+            {/* beginning of main calendar section */}
+            <div
+              // style={{
+              //   transform:
+              //     dimensions !== undefined &&
+              //     typeof dimensions?.width === "number"
+              //       ? `translateX(${String(currentIndex * 100)}vw)`
+              //       : "translateX(0px)",
+              // }}
+              className="grid gap-2 px-2 py-4 rounded-2xl bg-clr-contrast sm:flex"
+            >
+              <div className="hidden sm:flex">
+                <CalendarForm selectedDate={selectedDate} />
+              </div>
+              <div className="grid">
+                <CalendarHandlers
+                  today={today}
+                  previousMonthHandler={previousMonthHandler}
+                  currentDayHandler={currentDayHandler}
+                  nextMonthHandler={nextMonthHandler}
+                />
+                <Calendar
+                  today={today}
+                  selectedDate={selectedDate}
+                  selectedDateHandler={selectedDateHandler}
+                />
+              </div>
+              <div className="grid sm:hidden">
+                <CalendarForm selectedDate={selectedDate} />
+              </div>
+            </div>
+
+            <div className="contents lg:hidden">
+              <Availability
+                currentIndex={currentIndex}
+                // dimensions={dimensions}
+              />
+            </div>
+          </div>
+        </div>
+        {/* </div> */}
       </div>
     </div>
   );

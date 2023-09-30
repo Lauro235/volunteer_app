@@ -5,7 +5,7 @@ import SessionsSVG from "../SessionsSVG/SessionsSVG";
 
 const Navigation = () => {
   return (
-    <div className="flex items-center justify-between flex-1">
+    <div className="flex app-margin items-center justify-between flex-1">
     <a className="flex flex-col p-2 text-clr-primary hover:bg-hover hover:cursor-pointer hover:text-clr-primary">
         <BsExclamationSquare className="text-5xl" />
         <p>Urgent</p>
