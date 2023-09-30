@@ -1,30 +1,60 @@
-import {useEffect, useState} from "react"
-import Calendar from "../Calendar/Calendar";
-import { ISessionData } from "../../data/sessionData";
-
-
+import dayjs, { Dayjs } from "dayjs";
+import { useState } from "react";
+import Calendar from "./Calendar/Calendar";
+import CalendarForm from "./CalendarForm/CalendarForm";
+import CalendarHandlers from "./CalendarHandlers/CalendarHandlers";
+import Availability from "../Availability/Availability";
 
 const AppCalendar = () => {
-  const [sessions, setSessions] = useState<ISessionData[] | null>(null);
+  const currentDate: Dayjs = dayjs();
+  const [today, setToday] = useState(currentDate);
+  const [selectedDate, setSelectedDate] = useState(currentDate);
 
-  useEffect(() => {
-    const dataHandler = async () => {
-      const response = await fetch("/sessions");
-      const data = await response.json();
-      setSessions(data)
-    };
-    dataHandler();
-  }, []);
+  const previousMonthHandler = () => {
+    setToday(today.month(today.month() - 1));
+  };
 
-  console.log(sessions);
-  
-  
+  const currentDayHandler = () => {
+    setToday(currentDate);
+    setSelectedDate(currentDate);
+  };
+
+  const nextMonthHandler = () => {
+    setToday(today.month(today.month() + 1));
+  };
+
+  const selectedDateHandler = (date: Dayjs) => {
+    setSelectedDate(date);
+  };
+
   return (
-    <>
+    <div className="grid gap-2 px-2 py-4 rounded-2xl bg-clr-contrast sm:flex">
       {/* <Test /> */}
-      <Calendar />
-    </>
-  )
-}
+      <div className="hidden sm:flex">
+        <CalendarForm selectedDate={selectedDate} />
+      </div>
+      {/* <div className="self-stretch justify-self-stretch p-[1px] bg-black"></div> */}
+      <div className="grid">
+        <CalendarHandlers
+          today={today}
+          previousMonthHandler={previousMonthHandler}
+          currentDayHandler={currentDayHandler}
+          nextMonthHandler={nextMonthHandler}
+        />
+        <Calendar
+          today={today}
+          selectedDate={selectedDate}
+          selectedDateHandler={selectedDateHandler}
+        />
+      </div>
+      <div className="grid sm:hidden">
+        <CalendarForm selectedDate={selectedDate} />
+      </div>
+      <div className="contents lg:hidden">
+        <Availability />
+      </div>
+    </div>
+  );
+};
 
-export default AppCalendar
+export default AppCalendar;
