@@ -7,24 +7,19 @@ interface ICalenderForm {
 
 const CalendarForm = ({ selectedDate }: ICalenderForm) => {
   return (
-    <div className="pb-2">
-      <div className="grid p-2">
-        <h2>Volunteer slots for {selectedDate.toDate().toDateString()}</h2>
-        <p>No meetings for today.</p>
-      </div>
-      <div className="flex sm:flex-col items-center sm:items-start p-2 gap-5 whitespace-nowrap bg-blue-400 text-left justify-center">
+    <div className="grid pb-2 gap-7">
+      <div className="items-center justify-center hidden gap-5 p-2 text-left sm:flex sm:flex-col sm:items-start whitespace-nowrap">
         <CalendarSessionSlot slot="morning" />
         <CalendarSessionSlot slot="evening" />
       </div>
-      <button
-        type="button"
-        className="bg-green-600/50 w-fit justify-self-center mt-4 sm:hidden"
-      >
-        Book Session
-      </button>
-      <div className="hidden sm:block">
+      <div className="grid gap-5 text-xl sm:hidden">
+        <p className="text-lg font-medium">I would like to book a session for...</p>
+        <p className="font-bold">{selectedDate.toDate().toDateString()}</p>
+        <p className="text-sm">0/2 bookings made for this date.</p>
+      </div>
+      <div className="hidden gap-5 sm:grid">
         <p>Want to book a regular slot?</p>
-        <button className="bg-safety hover:bg-hovercolor" type="button">Yes please!</button>
+        <button className="bg-safety hover:bg-hover justify-self-center hover:text-white" type="button">Yes please!</button>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        hovercolor: '#0C41FF',
+        hover: '#0C41FF',
         safety: '#66ff66',
       },
     },
