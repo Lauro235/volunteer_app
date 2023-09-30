@@ -2,7 +2,6 @@ import { Dayjs } from "dayjs";
 import { generateDates } from "../../../utils/calendar";
 // import { twMerge } from "tailwind-merge";
 import { cn } from "../../../utils/conditions";
-
 interface ICalender {
   today: Dayjs;
   selectedDate: Dayjs;
