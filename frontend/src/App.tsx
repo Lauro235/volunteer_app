@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { ISessionData } from "./data/sessionData";
 import "./App.css";
 
-import AppCalendar from "./Components/AppCalendar/AppCalendar";
 import MobileHeader from "./Components/Header/Header";
 import Navigation from "./Components/Navigation/Navigation";
+import Booking from "./Components/Booking/Booking";
 
 function App() {
   const [sessions, setSessions] = useState<ISessionData[] | null>(null);
@@ -31,7 +31,7 @@ function App() {
     <div className="overflow-y-hidden">
       <MobileHeader />
       <Navigation />
-      <AppCalendar />
+      <Booking />
     </div>
   );
 }
