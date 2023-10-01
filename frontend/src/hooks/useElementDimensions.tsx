@@ -31,9 +31,13 @@ const getDimension = (node: HTMLElement) => {
 
 /**
  * 
+ * @author Swizec Teller
+ * @linkcode https://github.com/Swizec/useDimensions/blob/master/src/index.ts
  * @param track boolean to indicate if to track the resize
  * @returns an array with the ref value, the dimensions and the node reference created.
- * @example const [calRef, dimensions] = useElementDimensions();
+ * @example // In your application... 
+ * const [calRef, dimensions] = useElementDimensions();
+ * // Cast to keep TypeScript happy.
  * <div ref={(calRef as LegacyRef<HTMLDivElement>)}>
  * </div>
  */
@@ -56,16 +60,13 @@ export const useElementDimensions = <T extends HTMLElement>(track = true): [
       const measure = () => {
         window.requestAnimationFrame(() => {
           setDimensions(getDimension(node))
-          console.log('something');
-          
         })
+        if (track) {
+          window.addEventListener("resize", measure);
+          return () => window.removeEventListener("resize", measure);
+        }
       };
       measure();
-
-      if (track) {
-        window.addEventListener("resize", measure);
-        return () => window.removeEventListener("resize", measure);
-      }
     }
   }, [node]);
   return [ref, dimensions, node];
