@@ -28,11 +28,11 @@ function App() {
   */
 
   return (
-    <>
+    <div className="overflow-y-hidden">
       <MobileHeader />
       <Navigation />
       <AppCalendar />
-    </>
+    </div>
   );
 }
 

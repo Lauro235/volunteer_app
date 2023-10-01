@@ -17,7 +17,7 @@ const Availability = ({ currentIndex, selectedDate }: IAvailability) => {
   return (
     <>
       {/* <AvailabilityStrip /> */}
-      <div className="w-4/5 mx-auto rounded-2xl bg-clr-gradTwo">
+      <div className="w-4/5 mx-auto h-[90%] rounded-2xl bg-clr-gradTwo">
         <h2>{selectedDate.toDate().toDateString()}</h2>
         <div>
           <h3>{selectedDate.format("YYYY-MM-DD")}</h3>
