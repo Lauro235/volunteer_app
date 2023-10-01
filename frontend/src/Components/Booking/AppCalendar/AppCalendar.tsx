@@ -3,39 +3,27 @@ import Calendar from "./Calendar/Calendar";
 import CalendarForm from "./CalendarForm/CalendarForm";
 import CalendarHandlers from "./CalendarHandlers/CalendarHandlers";
 
-import { useElementDimensions } from "../../../hooks/useElementDimensions";
-import { LegacyRef, useEffect } from "react";
-// import useBrowserWindowDimensions from "../../hooks/useBrowserWindowDimensions";
-
 interface IAppCalendar {
   today: Dayjs;
   selectedDate: Dayjs;
-  width: number | undefined;
   // handlers
-  calendarWidthHandler: (width: number | undefined) => void;
   previousMonthHandler: () => void;
   currentDayHandler: () => void;
   nextMonthHandler: () => void;
   selectedDateHandler: (date: Dayjs) => void;
 }
 
-const AppCalendar = ({today, selectedDate, width, calendarWidthHandler, previousMonthHandler, currentDayHandler, nextMonthHandler, selectedDateHandler}: IAppCalendar) => {
+const AppCalendar = ({today, selectedDate, previousMonthHandler, currentDayHandler, nextMonthHandler, selectedDateHandler}: IAppCalendar) => {
   // const {height: windowHeight} = useBrowserWindowDimensions();
-  const [calRef, dimensions] = useElementDimensions();
-  const parentWidth = dimensions && dimensions.width;
 
-  useEffect(() => {
-    calendarWidthHandler(parentWidth)
-  }, [dimensions, parentWidth])
 
   return (
     <>
       {/* wrapper */}
       <div 
-        ref={(calRef as LegacyRef<HTMLDivElement>)}
-        style={{
-          width: width ? `${width}px` : '100%'
-        }}
+        // style={{
+        //   transform: `translateX(${-position * 100}%)`
+        // }}
         className="w-full h-full overflow-y-hidden bg-blue-500 justify-self-stretch"
       >
         <div

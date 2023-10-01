@@ -6,21 +6,18 @@ import CalendarSessionSlot from "../Booking/AppCalendar/CalendarForm/CalendarSes
 
 interface IAvailability {
   // containerWidth: number;
-  // currentIndex: number;
-  width: number | undefined;
   selectedDate: Dayjs; 
   // dimensions: IDimensions | undefined;
 }
 
-// const Availability = ({ containerWidth, currentIndex, selectedDate }: IAvailability) => {
-const Availability = ({ width, selectedDate }: IAvailability) => {
-
+// const Availability = ({ containerWidth, position, selectedDate }: IAvailability) => {
+const Availability = ({ selectedDate }: IAvailability) => {
   return (
     <div
-    style={{
-      width: width ? `${width}px` : '100%'
-    }}
-    className="overflow-y-hidden bg-green-500">
+    // style={{
+    //   transform: `translateX(${(-position * 100)}%)`
+    // }}
+    className="w-full overflow-y-hidden bg-green-500 justify-self-stretch">
       {/* <AvailabilityStrip /> */}
       <div 
         className="w-4/5 h-full px-2 py-4 mx-auto rounded-2xl bg-clr-gradTwo"

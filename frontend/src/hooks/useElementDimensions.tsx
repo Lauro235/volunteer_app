@@ -68,6 +68,6 @@ export const useElementDimensions = <T extends HTMLElement>(track = true): [
       };
       measure();
     }
-  }, [node]);
+  }, [node, track]);
   return [ref, dimensions, node];
 };

@@ -9,10 +9,9 @@ const Booking = () => {
   const currentDate: Dayjs = dayjs();
   const [today, setToday] = useState(currentDate);
   const [selectedDate, setSelectedDate] = useState(currentDate);
-  const [calendarWidth, setCalendarWidth] = useState(0);
 
   // const {height: windowHeight} = useBrowserWindowDimensions();
-  // const [currentIndex, setCurrentIndex] = useState(0);
+  const [position, setCurrentPosition] = useState(1);
 
   const previousMonthHandler = () => {
     setToday(today.month(today.month() - 1));
@@ -31,27 +30,24 @@ const Booking = () => {
     setSelectedDate(date);
   };
 
-  const calendarWidthHandler = (width: number | undefined) => {
-    setCalendarWidth((prev) => width !== undefined ? width : prev);
-  }
-
-  
-
   return (
     // container
     // component needs to escape body/root
-    <div className="flex w-[200vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] items-stretch overflow-y-hidden">
+    <div
+      style={{
+        transform: `translateX(${-position * 100}vw)`,
+      }}
+      className="flex w-[200vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] items-stretch overflow-y-hidden"
+    >
       <AppCalendar
         today={today}
         selectedDate={selectedDate}
-        width={calendarWidth}
         previousMonthHandler={previousMonthHandler}
         currentDayHandler={currentDayHandler}
         nextMonthHandler={nextMonthHandler}
         selectedDateHandler={selectedDateHandler}
-        calendarWidthHandler={calendarWidthHandler}
       />
-      <Availability width={calendarWidth} selectedDate={selectedDate} />
+      <Availability selectedDate={selectedDate} />
     </div>
   );
 };
