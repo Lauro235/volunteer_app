@@ -13,7 +13,7 @@ const AppCalendar = () => {
   const [today, setToday] = useState(currentDate);
   const [selectedDate, setSelectedDate] = useState(currentDate);
 
-  // const {width: windowWidth, height: windowHeight} = useBrowserWindowDimensions();
+  // const {width: windowWidth} = useBrowserWindowDimensions();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // const [containerRef, dimensions] = useElementDimensions();
@@ -37,64 +37,48 @@ const AppCalendar = () => {
     setSelectedDate(date);
   };
 
+  console.log(selectedDate.format("YYYY-MM-DD"));
+  
+
   return (
     // container
-    <div className="flex flex-col">
+    // component needs to escape body/root
+    <div className="flex w-[200vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+
       {/* wrapper */}
-      <div className="flex w-full relative">
-        {/* content wrapper */}
-        <div className="w-screen h-full">
-          {/* wrapper spacing */}
-          <div className="app-margin">
-            {/* <div ref={containerRef} className="flex"> */}
-            {/*
-                two elements need to be translating
-                translating according to state
-                a simple counter that will go between 0 and 1
-              */}
-
-
-            {/* beginning of main calendar section */}
-            <div
-              // style={{
-              //   transform:
-              //     dimensions !== undefined &&
-              //     typeof dimensions?.width === "number"
-              //       ? `translateX(${String(currentIndex * 100)}vw)`
-              //       : "translateX(0px)",
-              // }}
-              className="grid gap-2 px-2 py-4 rounded-2xl bg-clr-contrast sm:flex"
-            >
-              <div className="hidden sm:flex">
-                <CalendarForm selectedDate={selectedDate} />
-              </div>
-              <div className="grid">
-                <CalendarHandlers
-                  today={today}
-                  previousMonthHandler={previousMonthHandler}
-                  currentDayHandler={currentDayHandler}
-                  nextMonthHandler={nextMonthHandler}
-                />
-                <Calendar
-                  today={today}
-                  selectedDate={selectedDate}
-                  selectedDateHandler={selectedDateHandler}
-                />
-              </div>
-              <div className="grid sm:hidden">
-                <CalendarForm selectedDate={selectedDate} />
-              </div>
-            </div>
-
-            <div className="contents lg:hidden">
-              <Availability
-                currentIndex={currentIndex}
-                // dimensions={dimensions}
-              />
-            </div>
+      <div className="w-full">
+        <div
+          className="grid w-4/5 gap-2 px-2 py-4 mx-auto rounded-2xl bg-clr-contrast sm:flex"
+        >
+          <div className="hidden sm:flex">
+            <CalendarForm selectedDate={selectedDate} />
+          </div>
+          <div className="grid">
+            <CalendarHandlers
+              today={today}
+              previousMonthHandler={previousMonthHandler}
+              currentDayHandler={currentDayHandler}
+              nextMonthHandler={nextMonthHandler}
+            />
+            <Calendar
+              today={today}
+              selectedDate={selectedDate}
+              selectedDateHandler={selectedDateHandler}
+            />
+          </div>
+          <div className="grid sm:hidden">
+            <CalendarForm selectedDate={selectedDate} />
           </div>
         </div>
-        {/* </div> */}
+      </div>
+
+      <div className="w-full">
+        <div className="w-4/5 mx-auto contents lg:hidden">
+          <Availability
+            currentIndex={currentIndex}
+            selectedDate={selectedDate}
+          />
+        </div>
       </div>
     </div>
   );

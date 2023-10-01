@@ -6,6 +6,9 @@
   .app-margin {
     @apply w-11/12 mx-auto max-w-[500px];
   }
+  .breakout {
+    @apply relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw];
+  }
 }
 
 :root {
