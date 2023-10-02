@@ -2,6 +2,7 @@ import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 import AppCalendar from "./AppCalendar/AppCalendar";
 import Availability from "../Availability/Availability";
+import AvailabilityStrip from "../Availability/AvailabilityStrip/AvailabilityStrip";
 
 // import useBrowserWindowDimensions from "../../hooks/useBrowserWindowDimensions";
 
@@ -11,7 +12,7 @@ const Booking = () => {
   const [selectedDate, setSelectedDate] = useState(currentDate);
 
   // const {height: windowHeight} = useBrowserWindowDimensions();
-  const [position, setCurrentPosition] = useState(1);
+  const [position, setCurrentPosition] = useState(0);
 
   const previousMonthHandler = () => {
     setToday(today.month(today.month() - 1));
@@ -33,21 +34,24 @@ const Booking = () => {
   return (
     // container
     // component needs to escape body/root
-    <div
-      style={{
-        transform: `translateX(${-position * 100}vw)`,
-      }}
-      className="flex w-[200vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] items-stretch overflow-y-hidden"
-    >
-      <AppCalendar
-        today={today}
-        selectedDate={selectedDate}
-        previousMonthHandler={previousMonthHandler}
-        currentDayHandler={currentDayHandler}
-        nextMonthHandler={nextMonthHandler}
-        selectedDateHandler={selectedDateHandler}
-      />
-      <Availability selectedDate={selectedDate} />
+    <div className="w-screen bg-yellow-500">
+      <AvailabilityStrip />
+      <div
+        style={{
+          transform: `translateX(${-position * 100}vw)`,
+        }}
+        className="flex w-[200vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] items-stretch overflow-y-hidden"
+      >
+        <AppCalendar
+          today={today}
+          selectedDate={selectedDate}
+          previousMonthHandler={previousMonthHandler}
+          currentDayHandler={currentDayHandler}
+          nextMonthHandler={nextMonthHandler}
+          selectedDateHandler={selectedDateHandler}
+        />
+        <Availability selectedDate={selectedDate} />
+      </div>
     </div>
   );
 };

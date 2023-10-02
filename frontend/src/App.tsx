@@ -18,7 +18,7 @@ function App() {
     dataHandler();
   }, []);
 
-  console.log(sessions);
+  // console.log(sessions);
 
   /*
     Keep a single column design until you get to xl.
