@@ -1,22 +1,23 @@
-import { useEffect, useState } from "react";
-import { ISessionData } from "./data/sessionData";
+// import { useEffect, useState } from "react";
+// import { ISessionData } from "./data/sessionData";
 import "./App.css";
 
-import MobileHeader from "./Components/Header/Header";
-import Navigation from "./Components/Navigation/Navigation";
-import Booking from "./Components/Booking/Booking";
+import AppRoutes from "./Routes";
+// import MobileHeader from "./Components/Header/Header";
+// import Navigation from "./Components/Navigation/Navigation";
+// import Booking from "./Components/Booking/Booking";
 
 function App() {
-  const [sessions, setSessions] = useState<ISessionData[] | null>(null);
+  // const [sessions, setSessions] = useState<ISessionData[] | null>(null);
 
-  useEffect(() => {
-    const dataHandler = async () => {
-      const response = await fetch("/sessions");
-      const data = await response.json();
-      setSessions(data);
-    };
-    dataHandler();
-  }, []);
+  // useEffect(() => {
+  //   const dataHandler = async () => {
+  //     const response = await fetch("/sessions");
+  //     const data = await response.json();
+  //     setSessions(data);
+  //   };
+  //   dataHandler();
+  // }, []);
 
   // console.log(sessions);
 
@@ -29,9 +30,10 @@ function App() {
 
   return (
     <div className="overflow-y-hidden">
-      <MobileHeader />
+      <AppRoutes />
+      {/* <MobileHeader />
       <Navigation />
-      <Booking />
+      <Booking /> */}
     </div>
   );
 }

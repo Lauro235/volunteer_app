@@ -11,11 +11,19 @@ export default {
         "clr-contrast": "#DADADB",
         "clr-gradOne": "#B2884C",
         "clr-gradTwo": "#686F77",
+        login: "#2238FB",
+        register: "#44993F",
         hover: "#0C41FF",
         safety: "#66ff66",
       },
       backgroundImage: {
         AppBackground: "linear-gradient(to bottom, #B2884C, #686F77)",
+      },
+      boxShadow: {
+        input: "0px 0px 5px -1px currentcolor",
+      },
+      dropShadow: {
+        "app-btn": "0px 6px 0px #444"
       },
     },
   },
