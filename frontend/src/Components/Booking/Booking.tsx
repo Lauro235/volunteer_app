@@ -2,7 +2,6 @@ import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 import AppCalendar from "./AppCalendar/AppCalendar";
 import Availability from "../Availability/Availability";
-// import AvailabilityStrip from "../Availability/AvailabilityStrip/AvailabilityStrip";
 
 import Strip from "../Strip/Strip";
 
