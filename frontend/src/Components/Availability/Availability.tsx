@@ -18,7 +18,6 @@ const Availability = ({ selectedDate }: IAvailability) => {
     //   transform: `translateX(${(-position * 100)}%)`
     // }}
     className="w-full overflow-y-hidden bg-green-500 justify-self-stretch">
-      {/* <AvailabilityStrip /> */}
       <div 
         className="w-4/5 h-full px-2 py-4 mx-auto rounded-2xl bg-clr-gradTwo"
       >

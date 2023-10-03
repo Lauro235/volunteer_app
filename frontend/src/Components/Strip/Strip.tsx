@@ -1,13 +1,20 @@
 import { touchReducer, ReducerActions } from "./touchReducer";
-import { useCallback, useEffect, useReducer, useState } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 
-interface IAvailabilityStrip {
+interface IStrip {
+  heading: string;
+  // orientation: "left" | "right";
+  position: number;
+  currentPosition: number;
   changeCurrentPositionHandler: (num: number) => void;
 }
 
-const AvailabilityStrip = ({changeCurrentPositionHandler}: IAvailabilityStrip) => {
-  const heading = "availability";
-  const [isVisible, setIsVisible] = useState(false);
+const Strip = ({
+  heading,
+  position,
+  currentPosition,
+  changeCurrentPositionHandler,
+}: IStrip) => {
   const [touchState, setTouchState] = useReducer(touchReducer, {
     animationStart: false,
     interaction: false,
@@ -24,21 +31,24 @@ const AvailabilityStrip = ({changeCurrentPositionHandler}: IAvailabilityStrip) =
     
     0, is the furthest left and 5 is the furthest right. At the moment there are only
     two screens to worry about i.e. 0 - 1
+
+    changeCurrentPositionHandler(1); should take currentPosition and add or subtract one depending on whether the position is higher or lower than it.
   */
- 
+
   const isDragging = useCallback(() => {
-    if (touchState.interaction === "dragging")
-    
+    if (touchState.interaction === "dragging") console.log("window width");
+
     // e should always be defined unless interaction is false.
-      if (
-        touchState.e !== undefined &&
-        touchState.e.pageX < window.innerWidth / 2 &&
-        isVisible === false
-      ) {
-        setIsVisible(true);
-        changeCurrentPositionHandler(1);
-      }
-  }, [touchState, changeCurrentPositionHandler, isVisible]);
+    if (
+      touchState.e !== undefined &&
+      ((position === currentPosition + 1 &&
+        touchState.e.pageX < window.innerWidth / 2) ||
+        (position === currentPosition - 1 &&
+          touchState.e.pageX > window.innerWidth / 2))
+    ) {
+      changeCurrentPositionHandler(position);
+    }
+  }, [touchState, changeCurrentPositionHandler, currentPosition, position]);
 
   useEffect(() => {
     isDragging();
@@ -56,9 +66,10 @@ const AvailabilityStrip = ({changeCurrentPositionHandler}: IAvailabilityStrip) =
         // onTouchCancel={() => setTouchState({type: ReducerActions.Cancel})}
         onTouchEnd={() => setTouchState({ type: ReducerActions.Release })}
         style={{
-          opacity: !isVisible ? 1 : 0
+          opacity: currentPosition !== position ? 1 : 0,
+          right: position + 1 === currentPosition ? "auto" : 0,
         }}
-        className="absolute right-0 z-10 grid px-4 py-4 transition-opacity translate-y-1/4 top-1/4 text-clr-primary rounded-l-2xl bg-clr-gradTwo place-content-center"
+        className="absolute z-10 grid px-4 py-4 transition-opacity translate-y-1/4 top-1/4 text-clr-primary rounded-l-2xl bg-clr-gradTwo place-content-center"
       >
         {heading
           .toUpperCase()
@@ -71,4 +82,4 @@ const AvailabilityStrip = ({changeCurrentPositionHandler}: IAvailabilityStrip) =
   );
 };
 
-export default AvailabilityStrip;
+export default Strip;
