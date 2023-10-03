@@ -12,7 +12,7 @@ const Booking = () => {
   const [selectedDate, setSelectedDate] = useState(currentDate);
 
   // const {height: windowHeight} = useBrowserWindowDimensions();
-  const [position, setCurrentPosition] = useState(0);
+  const [position, setCurrentPosition] = useState<0 | 1>(0);
 
   const previousMonthHandler = () => {
     setToday(today.month(today.month() - 1));
@@ -31,16 +31,20 @@ const Booking = () => {
     setSelectedDate(date);
   };
 
+  const changeCurrentPositionHandler = (num: 0 | 1) => {
+    setCurrentPosition(num);
+  }
+
   return (
     // container
     // component needs to escape body/root
     <div className="w-screen overflow-x-hidden bg-yellow-500">
-      <AvailabilityStrip />
+      <AvailabilityStrip changeCurrentPositionHandler={changeCurrentPositionHandler} />
       <div
         style={{
           transform: `translateX(${-position * 100}vw)`,
         }}
-        className="flex w-[200vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] items-stretch"
+        className="flex w-[200vw] transition-transform relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] items-stretch"
       >
         <AppCalendar
           today={today}

@@ -29,7 +29,7 @@ type TState =
 | {
   animationStart: false,
   interaction: 'released',
-  e: React.TouchEvent | undefined
+  e: React.Touch | undefined
 }
 
 interface IAction {
@@ -38,7 +38,7 @@ interface IAction {
 }
 
 export const touchReducer = (state: TState, action: IAction): TState => {
-  console.log(action.payload);
+  // console.log(action.payload);
   switch(action.type) {
     case ReducerActions.Touch : {
       return {
