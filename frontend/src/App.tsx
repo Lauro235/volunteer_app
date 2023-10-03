@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { ISessionData } from "./data/sessionData";
 import "./App.css";
 
-import AppCalendar from "./Components/AppCalendar/AppCalendar";
 import MobileHeader from "./Components/Header/Header";
 import Navigation from "./Components/Navigation/Navigation";
+import Booking from "./Components/Booking/Booking";
 
 function App() {
   const [sessions, setSessions] = useState<ISessionData[] | null>(null);
@@ -18,20 +18,20 @@ function App() {
     dataHandler();
   }, []);
 
-  console.log(sessions);
-  
+  // console.log(sessions);
+
   /*
     Keep a single column design until you get to xl.
   
       'lg': '1024px',
       // => @media (min-width: 1280px) { ... }
   */
-  
+
   return (
-    <div className="grid justify-center gap-4">
+    <div className="overflow-y-hidden">
       <MobileHeader />
       <Navigation />
-      <AppCalendar />
+      <Booking />
     </div>
   );
 }

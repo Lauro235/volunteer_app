@@ -1,8 +1,7 @@
 import { Dayjs } from "dayjs";
-import { generateDates } from "../../../utils/calendar";
+import { generateDates } from "../../../../utils/calendar";
 // import { twMerge } from "tailwind-merge";
-import { cn } from "../../../utils/conditions";
-
+import { cn } from "../../../../utils/conditions";
 interface ICalender {
   today: Dayjs;
   selectedDate: Dayjs;
@@ -12,9 +11,6 @@ interface ICalender {
 function Calendar({ today, selectedDate, selectedDateHandler }: ICalender) {
   const { arrayOfDates } = generateDates(today.month(), today.year());
   const weekDays = ["m", "t", "w", "t", "f", "s", "s"];
-
-  console.log(generateDates());
-  
 
   return (
     <>
