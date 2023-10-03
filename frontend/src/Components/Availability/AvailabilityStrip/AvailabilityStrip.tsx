@@ -14,6 +14,18 @@ const AvailabilityStrip = ({changeCurrentPositionHandler}: IAvailabilityStrip) =
     e: undefined,
   });
 
+  /*
+    If I was to abstract this into a custom hook. What would I need?
+    touchState, changeCurrentPositionHandler currentPosition
+
+    change from (isVisible === false) to (currentPosition !== position)
+    
+    I could pass in currentPosition and position to the StripComponent.
+    
+    0, is the furthest left and 5 is the furthest right. At the moment there are only
+    two screens to worry about i.e. 0 - 1
+  */
+ 
   const isDragging = useCallback(() => {
     if (touchState.interaction === "dragging")
     
