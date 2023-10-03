@@ -19,7 +19,7 @@ const VolunteerView = () => {
   }, []);
   
   return (
-    <div className="overflow-y-hidden">
+    <div className="grid gap-6 overflow-y-hidden">
     <MobileHeader />
     <Navigation />
     <Booking />

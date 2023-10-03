@@ -16,7 +16,7 @@ const CalendarHandlers = ({
   nextMonthHandler,
 }: ICalenderHandlers) => {
   return (
-    <div className="flex justify-between px-3">
+    <div className="flex justify-between px-3 text-black/90">
       <div className="text-left">
         <h2 className="font-bold sm:font-semibold">
           {months[today.month()]}, {today.year()}

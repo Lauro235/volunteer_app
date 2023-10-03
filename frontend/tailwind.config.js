@@ -11,10 +11,10 @@ export default {
         "clr-contrast": "#DADADB",
         "clr-gradOne": "#B2884C",
         "clr-gradTwo": "#686F77",
-        login: "#2238FB",
-        register: "#44993F",
-        hover: "#0C41FF",
-        safety: "#66ff66",
+        "clr-login": "#2238FB",
+        "clr-register": "#44993F",
+        "clr-hover": "#0C41FF",
+        "clr-safety": "#66ff66",
       },
       backgroundImage: {
         AppBackground: "linear-gradient(to bottom, #B2884C, #686F77)",
@@ -25,6 +25,9 @@ export default {
       dropShadow: {
         "app-btn": "0px 6px 0px #444"
       },
+      screens: {
+        xsm: '450px'
+      }
     },
   },
   plugins: [],

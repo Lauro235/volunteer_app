@@ -1,7 +1,8 @@
 import { BsExclamationSquare } from "react-icons/bs";
 import { BiSolidHelpCircle } from "react-icons/bi";
 import { IoCalendarNumber } from "react-icons/io5";
-import SessionsSVG from "../SessionsSVG/SessionsSVG";
+import { MdUpcoming } from "react-icons/md"
+// import SessionsSVG from "../SessionsSVG/SessionsSVG";
 
 const Navigation = () => {
   return (
@@ -19,7 +20,8 @@ const Navigation = () => {
         <p>Calendar</p>
       </a>
       <a className="flex flex-col items-center p-2 text-clr-primary hover:bg-hover hover:cursor-pointer hover:text-clr-primary">
-        <SessionsSVG />
+        <MdUpcoming className="text-5xl" />
+        {/* <SessionsSVG /> */}
         <p>Sessions</p>
       </a>
     </div>
