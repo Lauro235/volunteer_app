@@ -34,13 +34,13 @@ const Booking = () => {
   return (
     // container
     // component needs to escape body/root
-    <div className="w-screen bg-yellow-500">
+    <div className="w-screen overflow-x-hidden bg-yellow-500">
       <AvailabilityStrip />
       <div
         style={{
           transform: `translateX(${-position * 100}vw)`,
         }}
-        className="flex w-[200vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] items-stretch overflow-y-hidden"
+        className="flex w-[200vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] items-stretch"
       >
         <AppCalendar
           today={today}

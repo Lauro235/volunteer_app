@@ -3,7 +3,7 @@ import { useReducer } from "react";
 
 const AvailabilityStrip = () => {
   const heading = "availability";
-  const [touchState, setTouchState] = useReducer(touchReducer, {animationStart: false, interaction: false})
+  const [touchState, setTouchState] = useReducer(touchReducer, {animationStart: false, interaction: false, e: undefined})
   /*
     state
     touched
@@ -19,10 +19,11 @@ const AvailabilityStrip = () => {
         opacity: 0,
       }} className="hidden w-screen h-screen bg-gray-700"></div>
       <div 
-        onTouchStart={() => setTouchState({type: ReducerActions.Touch})}
+        onTouchStart={(e: React.TouchEvent) => setTouchState({type: ReducerActions.Touch, payload: e})}
+        onTouchMove={(e: React.TouchEvent) => setTouchState({type: ReducerActions.Drag, payload: e})}
         // onTouchCancel={() => setTouchState({type: ReducerActions.Cancel})}
-        // onTouchEnd={() => setTouchState({type: ReducerActions.Release})}
-        className="absolute right-0 z-10 grid px-4 py-8 text-clr-primary rounded-l-2xl bg-clr-gradTwo place-content-center">
+        onTouchEnd={() => setTouchState({type: ReducerActions.Release})}
+        className="absolute right-0 z-10 grid px-4 py-4 translate-y-1/4 top-1/4 text-clr-primary rounded-l-2xl bg-clr-gradTwo place-content-center">
         {heading
           .toUpperCase()
           .split("")

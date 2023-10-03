@@ -8,29 +8,41 @@ export enum ReducerActions {
 type TState = 
 | {
   animationStart: false,
-  interaction: false
+  interaction: false,
+  e: React.Touch | undefined
 }
 | {
   animationStart: false,
-  interaction: 'touched'
+  interaction: 'touched',
+  e: React.Touch | undefined
 }
 | {
   animationStart: true,
-  interaction: 'dragging'
+  interaction: 'dragging',
+  e: React.Touch | undefined
+}
+| {
+  animationStart: true,
+  interaction: 'cancelled',
+  e: React.Touch | undefined
 }
 | {
   animationStart: false,
-  interaction: 'released'
+  interaction: 'released',
+  e: React.TouchEvent | undefined
 }
 
 interface IAction {
-  type: ReducerActions
+  type: ReducerActions;
+  payload?: React.TouchEvent;
 }
 
 export const touchReducer = (state: TState, action: IAction): TState => {
+  console.log(action.payload);
   switch(action.type) {
     case ReducerActions.Touch : {
       return {
+        e: action.payload?.touches[0],
         animationStart: false,
         interaction: 'touched'
       }
@@ -38,6 +50,7 @@ export const touchReducer = (state: TState, action: IAction): TState => {
     }
     case ReducerActions.Cancel : {
       return {
+        e: action.payload?.touches[0],
         animationStart: false,
         interaction: 'touched'
       }
@@ -45,6 +58,7 @@ export const touchReducer = (state: TState, action: IAction): TState => {
     }
     case ReducerActions.Drag : {
       return {
+        e: action.payload?.touches[0],
         animationStart: true,
         interaction: 'dragging'
       }
@@ -52,6 +66,7 @@ export const touchReducer = (state: TState, action: IAction): TState => {
     }
     case ReducerActions.Release : {
       return {
+        e: undefined,
         animationStart: false,
         interaction: false
       }
