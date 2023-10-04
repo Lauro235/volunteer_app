@@ -39,7 +39,7 @@ function Calendar({ today, selectedDate, selectedDateHandler }: ICalender) {
                     ? "bg-black"
                     : "",
                     currentMonth ? "font-bold" : "font-medium",
-                    isCurrentDay ? "bg-hover text-white" : "",
+                    isCurrentDay ? "bg-hover bg-clr-login text-white" : "",
                     "text-base h-7 w-7 grid sm:font-normal place-content-center rounded-full hover:bg-black hover:text-white hover:cursor-pointer transition-colors",
                   )}
                   onClick={() => selectedDateHandler(date)}

@@ -1,7 +1,3 @@
-// interface ILoginView {
-//   viewHandler: (preference: "login" | "volunteer") => void;
-// }
-
 const LoginView = () => {
   return (
     <div className="grid w-screen h-screen bg-AppBackground place-content-center">
@@ -21,8 +17,6 @@ const LoginView = () => {
             <button type="button" className="text-xl font-bold text-white drop-shadow-app-btn p4 bg-clr-login">Login</button>
             <button type="button" className="text-xl font-bold text-white drop-shadow-app-btn p4 bg-clr-register">Register</button>
           </div>
-
-
         </form>
       </div>
     </div>
