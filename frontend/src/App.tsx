@@ -42,7 +42,7 @@ function App() {
       {location.pathname !== "/login" ? (
         <Layout>
           <MobileHeader />
-          <Navigation />
+          <Navigation role="volunteer" />
           <AppRoutes />
         </Layout>
       ) : (
