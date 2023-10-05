@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { ISessionData } from "../../data/sessionData";
 
-import MobileHeader from "../../Components/Header/Header";
-import Navigation from "../../Components/Navigation/Navigation";
+
 import Booking from "../../Components/Booking/Booking";
 
 
@@ -19,11 +18,15 @@ const VolunteerView = () => {
   }, []);
   
   return (
-    <div className="overflow-y-hidden">
-    <MobileHeader />
-    <Navigation />
+    // <div className="grid gap-6 overflow-y-hidden">
+    <>
+    {/* <MobileHeader /> */}
+    {/* <Navigation /> */}
+
+    {/* <Outlet /> */}
+    
     <Booking />
-  </div>
+  </>
   )
 }
 

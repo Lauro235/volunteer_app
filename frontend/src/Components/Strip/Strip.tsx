@@ -1,9 +1,9 @@
 import { touchReducer, ReducerActions } from "./touchReducer";
 import { useCallback, useEffect, useReducer } from "react";
-
+import { cn } from "../../utils/conditions";
 interface IStrip {
   heading: string;
-  // orientation: "left" | "right";
+  className: string;
   position: number;
   currentPosition: number;
   changeCurrentPositionHandler: (num: number) => void;
@@ -11,16 +11,22 @@ interface IStrip {
 
 const Strip = ({
   heading,
+  className,
   position,
   currentPosition,
   changeCurrentPositionHandler,
 }: IStrip) => {
+  const rightStrip = position === currentPosition + 1;
+  const leftStrip = position === currentPosition - 1;
+
   const [touchState, setTouchState] = useReducer(touchReducer, {
     animationStart: false,
     interaction: false,
     e: undefined,
   });
 
+  console.log(touchState.e);
+  
   /*
     If I was to abstract this into a custom hook. What would I need?
     touchState, changeCurrentPositionHandler currentPosition
@@ -41,14 +47,18 @@ const Strip = ({
     // e should always be defined unless interaction is false.
     if (
       touchState.e !== undefined &&
-      ((position === currentPosition + 1 &&
-        touchState.e.pageX < window.innerWidth / 2) ||
-        (position === currentPosition - 1 &&
-          touchState.e.pageX > window.innerWidth / 2))
+      ((rightStrip && touchState.e.pageX < window.innerWidth / 2) ||
+        (leftStrip && touchState.e.pageX > window.innerWidth / 2))
     ) {
       changeCurrentPositionHandler(position);
     }
-  }, [touchState, changeCurrentPositionHandler, currentPosition, position]);
+  }, [
+    touchState,
+    changeCurrentPositionHandler,
+    rightStrip,
+    leftStrip,
+    position,
+  ]);
 
   useEffect(() => {
     isDragging();
@@ -69,7 +79,10 @@ const Strip = ({
           opacity: currentPosition !== position ? 1 : 0,
           right: position + 1 === currentPosition ? "auto" : 0,
         }}
-        className="absolute z-10 grid px-4 py-4 transition-opacity translate-y-1/4 top-1/4 text-clr-primary rounded-l-2xl bg-clr-gradTwo place-content-center"
+        className={cn(
+          "absolute z-10 hover:scale-125  grid px-3 py-3 text-sm xsm:px-4 xsm:py-4 xsm:text-base transition-all top-12 place-content-center",
+          className
+        )}
       >
         {heading
           .toUpperCase()

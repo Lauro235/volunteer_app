@@ -1,7 +1,3 @@
-// interface ILoginView {
-//   viewHandler: (preference: "login" | "volunteer") => void;
-// }
-
 const LoginView = () => {
   return (
     <div className="grid w-screen h-screen bg-AppBackground place-content-center">
@@ -14,15 +10,13 @@ const LoginView = () => {
         </div>
         <form className="grid w-full gap-9">
           <div className="flex flex-col w-full gap-6">
-            <input id="email" type="email" placeholder="email" className="pb-1 pl-2 text-2xl shadow-input" />
-            <input id="password" type="password" placeholder="password" className="pb-1 pl-1 text-2xl shadow-input" />
+            <input id="email" type="email" placeholder="email" className="py-1 pl-2 text-2xl text-black bg-clr-primary shadow-input" />
+            <input id="password" type="password" placeholder="password" className="py-1 pl-1 text-2xl text-black bg-clr-primary shadow-input" />
           </div>
           <div className="flex flex-col w-full gap-6">
-            <button type="button" className="text-xl font-bold text-white drop-shadow-app-btn p4 bg-login">Login</button>
-            <button type="button" className="text-xl font-bold text-white drop-shadow-app-btn p4 bg-register">Register</button>
+            <button type="button" className="text-xl font-bold text-white drop-shadow-app-btn p4 bg-clr-login">Login</button>
+            <button type="button" className="text-xl font-bold text-white drop-shadow-app-btn p4 bg-clr-register">Register</button>
           </div>
-
-
         </form>
       </div>
     </div>

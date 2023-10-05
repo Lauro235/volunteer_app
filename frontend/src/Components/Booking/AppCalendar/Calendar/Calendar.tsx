@@ -1,6 +1,7 @@
+import "./Calendar.css"
+
 import { Dayjs } from "dayjs";
 import { generateDates } from "../../../../utils/calendar";
-// import { twMerge } from "tailwind-merge";
 import { cn } from "../../../../utils/conditions";
 interface ICalender {
   today: Dayjs;
@@ -19,7 +20,7 @@ function Calendar({ today, selectedDate, selectedDateHandler }: ICalender) {
           {weekDays.map((day, index) => {
             return (
               <h2
-                className="grid w-12 h-12 text-sm text-[#333] place-content-center"
+                className="grid w-12 h-12 text-sm fb-color place-content-center"
                 key={index}
               >
                 {day}
@@ -30,15 +31,15 @@ function Calendar({ today, selectedDate, selectedDateHandler }: ICalender) {
         <div className="grid w-full grid-cols-7 gap-y-3">
           {arrayOfDates.map(({ date, isCurrentDay, currentMonth }, index) => {
             return (
-              <div className="grid place-content-center" key={index}>
+              <div className="grid place-content-center fb-color" key={index}>
                 <h1
                   className={cn(
                     selectedDate.toDate().toDateString() ===
                     date.toDate().toDateString() && !isCurrentDay
-                    ? "bg-black text-white"
+                    ? "bg-black"
                     : "",
                     currentMonth ? "font-bold" : "font-medium",
-                    isCurrentDay ? "bg-hover text-white" : "",
+                    isCurrentDay ? "bg-hover bg-clr-login text-white" : "",
                     "text-base h-7 w-7 grid sm:font-normal place-content-center rounded-full hover:bg-black hover:text-white hover:cursor-pointer transition-colors",
                   )}
                   onClick={() => selectedDateHandler(date)}
