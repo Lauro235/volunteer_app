@@ -6,6 +6,9 @@ export default {
       maxWidth: {
         "app-max": "500px",
       },
+      gridTemplateRows: {
+        "8": "repeat(8, minmax(0, 1fr))"
+      },
       colors: {
         "clr-primary": "white",
         "clr-contrast": "#DADADB",
