@@ -2,12 +2,21 @@
 // import { ISessionData } from "./data/sessionData";
 import "./App.css";
 
-import AppRoutes from "./Routes";
-// import MobileHeader from "./Components/Header/Header";
-// import Navigation from "./Components/Navigation/Navigation";
+import { useLocation } from "react-router-dom";
+
+import AppRoutes from "./AppRoutes";
+import { useEffect } from "react";
+import Layout from "./Layout";
+import MobileHeader from "./Components/Header/Header";
+import Navigation from "./Components/Navigation/Navigation";
 // import Booking from "./Components/Booking/Booking";
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log(location.pathname);
+  }, [location]);
   // const [sessions, setSessions] = useState<ISessionData[] | null>(null);
 
   // useEffect(() => {
@@ -30,10 +39,17 @@ function App() {
 
   return (
     <div className="overflow-y-hidden">
-      <AppRoutes />
-      {/* <MobileHeader />
-      <Navigation />
-      <Booking /> */}
+      {location.pathname !== "/login" ? (
+        <Layout>
+          <MobileHeader />
+          <Navigation />
+          <AppRoutes />
+        </Layout>
+      ) : (
+        <AppRoutes />
+      )}
+
+      {/* <Booking /> */}
     </div>
   );
 }
