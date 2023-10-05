@@ -36,7 +36,7 @@ export const generateDates = (
 
   // generate suffix days
 
-  const total = 35;
+  const total = 42;
   const remaining = total - arrayOfDates.length;
 
   for (
