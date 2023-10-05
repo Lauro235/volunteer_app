@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "npx tsc",
+    "build": "npm install && npx tsc",
     "start": "node dist/server.js",
     "createTables": "node dist/db/starting-scripts/createTables.js",
     "insertInto": "node dist/db/starting-scripts/inserts.js"
