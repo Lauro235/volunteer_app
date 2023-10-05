@@ -1,18 +1,22 @@
-import Layout from "../../Layout";
-import MobileHeader from "../../Components/Header/Header";
-import Navigation from "../../Components/Navigation/Navigation";
+import { Link } from "react-router-dom";
+import Button from "../../Components/Generic/Button";
 
-// interface IRoot {
-
-// }
-
-// const Root = ({children}: PropsWithChildren) => {
 const Root = () => {
   return (
-    <Layout>
-      <MobileHeader />
-      <Navigation />
-    </Layout>
+    <div className="grid gap-12">
+      <h1 className="text-2xl">Welcome to the Volunteer App!</h1>
+      <div className="grid gap-6 pb-2 justify-items-center">
+        <p>Please choose a role.</p>
+        <div className="flex gap-5">
+          <Link to="/app/volunteer">
+            <Button text="Volunteer" />
+          </Link>
+          <Link to="/app/manager">
+            <Button text="Manager" />
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 

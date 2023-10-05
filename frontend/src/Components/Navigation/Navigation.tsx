@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import { navigationVolunteer, navigationManager } from "../../config";
 
 interface INavigation {
-  role: "volunteer" | "manager";
+  role: "volunteer" | "manager" | null;
 }
 
 const Navigation = ({role}: INavigation) => {
-
-  const navigationInstance = role === "volunteer" ? navigationVolunteer : navigationManager;
+  const roleNotNull = role !== null && role;
+  const navigationInstance = roleNotNull === "volunteer" ? navigationVolunteer : navigationManager;
   
   return (
     <div className="flex items-center justify-between flex-1 app-margin">

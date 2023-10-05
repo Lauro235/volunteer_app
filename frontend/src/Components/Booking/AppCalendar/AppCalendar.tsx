@@ -21,9 +21,6 @@ const AppCalendar = ({today, selectedDate, previousMonthHandler, currentDayHandl
     <>
       {/* wrapper */}
       <div 
-        // style={{
-        //   transform: `translateX(${-position * 100}%)`
-        // }}
         className="w-full h-full overflow-visible justify-self-stretch"
       >
         <div

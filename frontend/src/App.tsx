@@ -5,17 +5,30 @@ import "./App.css";
 import { useLocation } from "react-router-dom";
 
 import AppRoutes from "./AppRoutes";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Layout from "./Layout";
 import MobileHeader from "./Components/Header/Header";
 import Navigation from "./Components/Navigation/Navigation";
-// import Booking from "./Components/Booking/Booking";
 
 function App() {
   const location = useLocation();
+  const [role, setRole] = useState<"volunteer" | "manager" | null>(null);
 
   useEffect(() => {
-    console.log(location.pathname);
+    function checkRole() {
+      const path = location.pathname;
+      if (
+        path === "/app/volunteer" ||
+        path === "/app/volunteer/booking" ||
+        path === "/app/volunteer/urgent"
+      ) {
+        setRole("volunteer");
+      }
+      if (path === "/app/manager") {
+        setRole("manager");
+      }
+    }
+    checkRole();
   }, [location]);
   // const [sessions, setSessions] = useState<ISessionData[] | null>(null);
 
@@ -39,17 +52,17 @@ function App() {
 
   return (
     <div className="overflow-y-hidden">
-      {location.pathname !== "/login" ? (
+      {location.pathname !== "/" && location.pathname !== "/app" ? (
         <Layout>
           <MobileHeader />
-          <Navigation role="volunteer" />
-          <AppRoutes />
+          <Navigation role={role} />
+          <div className="h-full row-span-6 row-start-3">
+            <AppRoutes role={role} />
+          </div>
         </Layout>
       ) : (
-        <AppRoutes />
+        <AppRoutes role={role} />
       )}
-
-      {/* <Booking /> */}
     </div>
   );
 }
