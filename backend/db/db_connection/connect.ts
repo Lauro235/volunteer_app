@@ -9,6 +9,8 @@ const options = {
     database: process.env.PGDATABASE,
     password: process.env.PGPASSWORD,
     port: Number(process.env.PGPORT),
+    statement_timeout: 5000,
+    query_timeout: 10000,
   }
 
  
@@ -17,3 +19,14 @@ const options = {
 export const pool = new Pool(options)
 export const client = new Client(options)
 
+export const query = async (text: string, params?: Array<number | string>) => {
+  const start = Date.now()
+  const res = await pool.query(text, params)
+  const duration = Date.now() - start
+  console.log('executed query', { text, duration, rows: res.rowCount })
+  return res
+}
+
+export const getClient = () => {
+  return pool.connect()
+}
