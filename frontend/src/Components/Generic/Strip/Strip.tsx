@@ -1,6 +1,6 @@
 import { touchReducer, ReducerActions } from "./touchReducer";
 import { useCallback, useEffect, useReducer } from "react";
-import { cn } from "../../utils/conditions";
+import { cn } from "../../../utils/conditions";
 interface IStrip {
   heading: string;
   className: string;

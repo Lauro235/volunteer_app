@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Button from "../../Components/Generic/Button";
+import Button from "../Button";
 
-const Root = () => {
+const ProfilePicker = () => {
   return (
     <div className="grid gap-12">
       <h1 className="text-2xl">Welcome to the Volunteer App!</h1>
@@ -20,4 +20,4 @@ const Root = () => {
   );
 };
 
-export default Root;
+export default ProfilePicker;

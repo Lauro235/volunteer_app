@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { navigationVolunteer, navigationManager } from "../../config";
+import { navigationVolunteer, navigationManager } from "../../../config";
 
 interface INavigation {
   role: "volunteer" | "manager" | null;
@@ -14,7 +14,7 @@ const Navigation = ({role}: INavigation) => {
       {
         navigationInstance.map(anchor => {
           return (
-            <Link to={anchor.path} className="flex flex-col items-center p-2 text-clr-primary hover:bg-hover hover:cursor-pointer hover:text-clr-primary">
+            <Link key={anchor.path} to={anchor.path} className="flex flex-col items-center p-2 text-clr-primary hover:bg-hover hover:cursor-pointer hover:text-clr-primary">
               {<anchor.icon className="text-4xl"/>}
               <p>{anchor.label}</p>
             </Link>

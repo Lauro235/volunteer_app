@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "build": "npm install && npx tsc",
+    "dev": "node dist/server.js",
     "createTables": "node dist/db/starting-scripts/createTables.js",
     "insertInto": "node dist/db/starting-scripts/inserts.js",
     "start": "npm run createTables && npm run insertInto && node dist/server.js"

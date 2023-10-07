@@ -18,10 +18,10 @@ app.get("/", (req, res) => {
   res.send("Express + TypeScript Server")
 })
 
-app.use("/volunteers", volunteerRouter, (req, res) => {
+app.use("/volunteer", volunteerRouter, (req, res) => {
 })
 
-app.use("/managers", managerRouter, (req, res) => {
+app.use("/manager", managerRouter, (req, res) => {
 })
 
 app.use("/sessions", sessionsRouter, (req, res) => {
