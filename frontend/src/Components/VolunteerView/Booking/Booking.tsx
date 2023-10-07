@@ -3,7 +3,7 @@ import { useState } from "react";
 import AppCalendar from "./AppCalendar/AppCalendar";
 import Availability from "../Availability/Availability";
 
-import Strip from "../Strip/Strip";
+import Strip from "../../Generic/Strip/Strip";
 
 // import useBrowserWindowDimensions from "../../hooks/useBrowserWindowDimensions";
 

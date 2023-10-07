@@ -1,8 +1,8 @@
 import "./Calendar.css"
 
 import { Dayjs } from "dayjs";
-import { generateDates } from "../../../../utils/calendar";
-import { cn } from "../../../../utils/conditions";
+import { generateDates } from "../../../../../utils/calendar";
+import { cn } from "../../../../../utils/conditions";
 interface ICalender {
   today: Dayjs;
   selectedDate: Dayjs;

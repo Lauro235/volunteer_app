@@ -8,7 +8,7 @@ import AppRoutes from "./AppRoutes";
 import { useEffect, useState } from "react";
 import Layout from "./Layout";
 import MobileHeader from "./Components/Header/Header";
-import Navigation from "./Components/Navigation/Navigation";
+import Navigation from "./Components/Generic/Navigation/Navigation";
 
 function App() {
   const location = useLocation();

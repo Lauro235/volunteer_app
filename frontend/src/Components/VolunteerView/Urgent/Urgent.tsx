@@ -1,4 +1,4 @@
-import Button from "../Generic/Button";
+import Button from "../../Generic/Button";
 
 const Urgent = () => {
   return (

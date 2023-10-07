@@ -1,12 +1,12 @@
 import { Routes, Route, Outlet } from "react-router-dom";
-import Root from "./Screens/Root/Root";
-import Help from "./Components/Outlet/Help";
+import ProfilePicker from "./Components/Generic/ProfilePicker/ProfilePicker";
+import Help from "./Components/Generic/Help";
 
-import LoginView from "./Screens/LoginView/LoginView";
+import LoginView from "./Components/LoginView/LoginView";
 
 // import VolunteerView from "./Screens/VolunteerView/VolunteerView";
-import Booking from "./Components/Booking/Booking";
-import Urgent from "./Components/Urgent/Urgent";
+import Booking from "./Components/VolunteerView/Booking/Booking";
+import Urgent from "./Components/VolunteerView/Urgent/Urgent";
 
 /*
   React Router Dom 6 is not intuitive yet when it comes to nested routes.
@@ -19,21 +19,19 @@ interface IAppRoutes {
 }
 
 const AppRoutes = ({ role }: IAppRoutes) => {
-  const roleNotNull = role !== null && role;
-  
   return (
     <div>
       <Routes>
         <Route path="/" element={<LoginView />} />
         <Route path="/app">
-          <Route index path="/app" element={<Root />} />
+          <Route index path="/app" element={<ProfilePicker />} />
           <Route path="/app/volunteer">
-            <Route index={true} element={<Help role={roleNotNull} />} />
+            <Route index={true} element={<Help role={role} />} />
             <Route path="booking" element={<Booking />} />
             <Route path="urgent" element={<Urgent />} />
           </Route>
           <Route path="/app/manager">
-            <Route index={true} element={<Help role={roleNotNull} />} />
+            <Route index={true} element={<Help role={role} />} />
             {/* <Route path="booking" element={<Booking />} /> */}
             {/* <Route path="urgent" element={<Urgent />} /> */}
           </Route>

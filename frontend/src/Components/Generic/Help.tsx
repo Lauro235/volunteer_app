@@ -1,8 +1,8 @@
-import Card from "../Generic/Card";
+import Card from "./Card";
 import { instructionsVolunteer, instructionsManager } from "../../config";
 
 interface IHelp {
-  role: "volunteer" | "manager" | false;
+  role: "volunteer" | "manager" | null;
 }
 
 const Help = ({ role }: IHelp) => {
@@ -20,13 +20,13 @@ const Help = ({ role }: IHelp) => {
         {role === "volunteer" ? (
           instructionsVolunteer.map((instruction, index) => {
             return (
-              <li>{index + 1}. {instruction}</li>
+              <li key={`${index}v`}>{index + 1}. {instruction}</li>
             )
           })
         ) : (
           instructionsManager.map((instruction, index) => {
             return (
-              <li>{index + 1}. {instruction}</li>
+              <li key={`${index}m`}>{index + 1}. {instruction}</li>
             )
           })
         )}
