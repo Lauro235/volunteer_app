@@ -40,9 +40,9 @@ const AppRoutes = ({ role }: IAppRoutes) => {
         </Route>
         {/* Create route for both volunteer and manager Mostly will have shared UI */}
       </Routes>
-      <div className="h-full">
+      {/* <div className="flex"> */}
         <Outlet />
-      </div>
+      {/* </div> */}
     </div>
   );
 };

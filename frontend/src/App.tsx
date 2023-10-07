@@ -56,7 +56,7 @@ function App() {
         <Layout>
           <MobileHeader />
           <Navigation role={role} />
-          <div className="h-full row-span-6 row-start-3">
+          <div className="grid items-stretch h-full row-span-6 row-start-3">
             <AppRoutes role={role} />
           </div>
         </Layout>
