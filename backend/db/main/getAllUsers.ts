@@ -9,9 +9,10 @@ import * as pool from "../db_connection/connect";
 
 export const getAllUsers = async () => {
   const res = await pool.query(`
-  SELECT u.first_name, u.surname, u.email_address, r.role_name
+  SELECT 
+    u.first_name, u.surname, u.email_address, r.type AS role
   FROM users AS u
-  INNER JOIN roles AS r
+  INNER JOIN role_types AS r
     ON r.id = u.role_id;
   `)
   return res.rows;

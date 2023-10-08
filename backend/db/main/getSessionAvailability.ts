@@ -4,18 +4,22 @@ import * as pool  from "../db_connection/connect"
  * @description As a volunteer I want to see the availability of all sessions. I should not be able to see the details of other volunteers.
  * @param id - number represents the volunteer id.
  * @returns All sessions and status. Either 'booked', 'cancelled', 'available' or 'unavailable'.
+ * @summary ✅
  */
 
 export const getSessionAvailability = async (id: number) => {
   const res = await pool.query(`
-  SELECT s.slot, s.date,
+  SELECT s.id, s.date, s.slot, s.user_id
   CASE
-    WHEN b.user_id = $1 THEN 'booked' 
-    WHEN (b.user_id IS NOT NULL AND b.user_id != $1) THEN 'unavailable'
-    ELSE 'available' END AS status
-  FROM bookings AS b
-  INNER JOIN users AS u ON u.id = b.user_id
-  INNER JOIN sessions AS s ON s.id = b.session_id;
+      WHEN s.user_id IS NULL THEN 'available'
+      WHEN s.user_id = $1 THEN 'booked' 
+      WHEN (s.user_id IS NOT NULL AND s.user_id != $1) THEN 'unavailable'
+  END AS status
+  FROM sessions AS s
+    INNER JOIN attendance_types AS a
+      ON s.attendance_id = a.id
+      INNER JOIN time_keeping_types AS t
+      ON s.time_keeping_id = t.id;
   `, [id])
   return res.rows;
 } 
