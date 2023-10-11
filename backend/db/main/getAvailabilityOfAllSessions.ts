@@ -7,9 +7,9 @@ import * as pool  from "../db_connection/connect"
  * @summary ✅
  */
 
-export const getSessionAvailability = async (id: number) => {
+export const getAvailabilityOfAllSessions = async (id: string) => {
   const res = await pool.query(`
-  SELECT s.id, s.date, s.slot, s.user_id
+  SELECT s.id, s.date, s.slot, s.user_id,
   CASE
       WHEN s.user_id IS NULL THEN 'available'
       WHEN s.user_id = $1 THEN 'booked' 
