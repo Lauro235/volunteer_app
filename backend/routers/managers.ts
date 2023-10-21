@@ -31,6 +31,9 @@ managerRouter.get("/sessions/:volunteerID", async (req, res) => {
   const { volunteerID } = req.params
   const data = await getSessionsByVolunteerID(Number(volunteerID))
   res.status(200).json(data)
+})
+
+managerRouter.post("/sessions/create", async (req, res) => {
   
 })
 

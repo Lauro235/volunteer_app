@@ -1,7 +1,7 @@
 import * as pool  from "../../db_connection/connect"
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 
-const checkSessionExists = async (req: Request, res: Response) => {
+const query = async (req: Request, res: Response) => {
   const { date, slot } = req.body;
   const { rows } = await pool.query(`
     SELECT
@@ -11,7 +11,27 @@ const checkSessionExists = async (req: Request, res: Response) => {
       ) THEN true
       ELSE false END) as boolean;
   `, [date, slot])
-  return rows[0].boolean; 
+  if (rows[0].boolean === true) {
+      return true
+    }
 }
+
+/**
+ * @param req 
+ * @param res 
+ * @param next 
+ * @description This function will check if a session of the type morning or evening exists on the given date.
+ */
+
+const checkSessionExists = async (req: Request, res: Response, next: NextFunction) => {
+  // checkSessionExists returns true or false. If true call next function
+  const sessionExists = await query(req, res);
+
+  if (sessionExists) {
+    next();
+  } else {
+    res.status(200).send("Session does not exist");
+  }
+};
 
 export default checkSessionExists;
