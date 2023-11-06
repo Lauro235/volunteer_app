@@ -7,7 +7,8 @@ export default {
         "app-max": "500px",
       },
       gridTemplateRows: {
-        "8": "repeat(8, minmax(0, 1fr))"
+        8: "repeat(8, minmax(0, 1fr))",
+        9: "repeat(9, minmax(0, 1fr))",
       },
       colors: {
         "clr-primary": "white",
@@ -26,11 +27,11 @@ export default {
         input: "0px 0px 5px -1px currentcolor",
       },
       dropShadow: {
-        "app-btn": "0px 6px 0px #444"
+        "app-btn": "0px 6px 0px #444",
       },
       screens: {
-        xsm: '450px'
-      }
+        xsm: "450px",
+      },
     },
   },
   plugins: [],

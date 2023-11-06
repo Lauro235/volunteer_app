@@ -4,11 +4,10 @@ import "./App.css";
 
 import { useLocation } from "react-router-dom";
 
-import AppRoutes from "./AppRoutes";
+import MobileAppRoutes from "./Mobile/MobileAppRoutes";
 import { useEffect, useState } from "react";
-import Layout from "./Layout";
-import MobileHeader from "./Components/Header/Header";
-import Navigation from "./Components/Generic/Navigation/Navigation";
+import MobileView from "./Mobile/MobileView";
+import DesktopView from "./Desktop/DesktopView";
 
 function App() {
   const location = useLocation();
@@ -53,15 +52,12 @@ function App() {
   return (
     <div className="overflow-y-hidden">
       {location.pathname !== "/" && location.pathname !== "/app" ? (
-        <Layout>
-          <MobileHeader />
-          <Navigation role={role} />
-          <div className="grid items-stretch h-full row-span-6 row-start-3">
-            <AppRoutes role={role} />
-          </div>
-        </Layout>
+        <div className="contents">
+          <MobileView role={role} />
+          <DesktopView role={role} />
+        </div>
       ) : (
-        <AppRoutes role={role} />
+        <MobileAppRoutes role={role} />
       )}
     </div>
   );
