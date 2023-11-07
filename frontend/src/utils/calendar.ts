@@ -54,6 +54,31 @@ export const generateDates = (
   return { arrayOfDates };
 };
 
+/**
+ * 
+ * @param dateInput This is a state variable that can be changed when the client clicks next and previous week. They may also reset week to the current week.
+ * @returns An array of objects. Each object represents a day within the week.
+ */
+
+export const generateWeek = (dateInput = dayjs()) => {
+  const weekdays = []
+
+  const firstDateOfWeek = dateInput.startOf('w');
+  const firstDateOfWeekNumber = dateInput.startOf('w').date();
+
+  for (let i = 0; i < 7; i++) {
+    const current = firstDateOfWeek.date(firstDateOfWeekNumber + i); 
+    weekdays.push({
+      base: current,
+      name: current.format('ddd'),
+      formattedDate: current.format('DD-MM-YYYY'),
+    });
+  }
+  
+  return { weekdays };
+  
+};
+
 export const months = [
   "January",
   "February",

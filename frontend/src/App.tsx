@@ -1,6 +1,7 @@
 // import { useEffect, useState } from "react";
 // import { ISessionData } from "./data/sessionData";
 import "./App.css";
+import { generateWeek } from "./utils/calendar";
 
 import { useLocation } from "react-router-dom";
 
@@ -40,14 +41,15 @@ function App() {
   //   dataHandler();
   // }, []);
 
-  // console.log(sessions);
-
   /*
     Keep a single column design until you get to xl.
   
       'lg': '1024px',
       // => @media (min-width: 1280px) { ... }
-  */
+  */ 
+//  we know that 2 = wednesday
+
+  generateWeek()
 
   return (
     <div className="overflow-y-hidden">

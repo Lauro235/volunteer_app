@@ -5,14 +5,11 @@ import Availability from "../Availability/Availability";
 
 import Strip from "../../Generic/Strip/Strip";
 
-// import useBrowserWindowDimensions from "../../hooks/useBrowserWindowDimensions";
-
 const Booking = () => {
   const currentDate: Dayjs = dayjs();
   const [today, setToday] = useState(currentDate);
   const [selectedDate, setSelectedDate] = useState(currentDate);
 
-  // const {height: windowHeight} = useBrowserWindowDimensions();
   const [currentPosition, setCurrentPosition] = useState<number>(0);
 
   const previousMonthHandler = () => {

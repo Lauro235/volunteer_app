@@ -25,8 +25,6 @@ const Strip = ({
     e: undefined,
   });
 
-  console.log(touchState.e);
-  
   /*
     If I was to abstract this into a custom hook. What would I need?
     touchState, changeCurrentPositionHandler currentPosition
@@ -42,7 +40,6 @@ const Strip = ({
   */
 
   const isDragging = useCallback(() => {
-    if (touchState.interaction === "dragging") console.log("window width");
 
     // e should always be defined unless interaction is false.
     if (

@@ -38,7 +38,6 @@ interface IAction {
 }
 
 export const touchReducer = (state: TState, action: IAction): TState => {
-  // console.log(action.payload);
   switch(action.type) {
     case ReducerActions.Touch : {
       return {
