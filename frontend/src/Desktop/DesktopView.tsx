@@ -11,7 +11,7 @@ const DesktopView = ({ role }: IDesktopView) => {
   return (
     <div className="hidden md:block">
       <Layout>
-        <div className="grid gap-4 overflow-clip items-stretch row-span-full rounded-3xl">
+        <div className="grid gap-4 overflow-clip items-stretch row-span-full m-3 rounded-3xl">
           <div className="grid grid-cols-9 gap-3 row-start-1 row-span-5">
             <div className="bg-clr-contrast col-start-1 col-span-2 rounded-br-3xl"></div>
             <div className="col-span-4 bg-white/20"></div>
