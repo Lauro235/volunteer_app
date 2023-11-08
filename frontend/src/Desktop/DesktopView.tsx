@@ -1,3 +1,4 @@
+import WeekView from "../Components/Generic/WeekView/WeekView";
 import Layout from "../Layout";
 
 interface IDesktopView {
@@ -16,36 +17,7 @@ const DesktopView = ({ role }: IDesktopView) => {
             <div className="col-span-4 bg-white/20"></div>
             <div className="bg-clr-contrast col-span-3 rounded-bl-3xl"></div>
           </div>
-          <div className="row-span-4 text-left gap-2 grid grid-cols-7 bg-gray-600">
-            <div className="bg-[#eee]">
-              <p>Mon</p>
-              <p>1</p>
-            </div>
-            <div className="bg-[#eee]">
-              <p>Tue</p>
-              <p>2</p>
-            </div>
-            <div className="bg-[#eee]">
-              <p>Wed</p>
-              <p>3</p>
-            </div>
-            <div className="bg-[#eee]">
-              <p>Thu</p>
-              <p>4</p>
-            </div>
-            <div className="bg-[#eee]">
-              <p>Fri</p>
-              <p>5</p>
-            </div>
-            <div className="bg-[#eee]">
-              <p>Sat</p>
-              <p>6</p>
-            </div>
-            <div className="bg-[#eee]">
-              <p>Sun</p>
-              <p>7</p>
-            </div>
-          </div>
+          <WeekView />
           {/* <p>Some text</p> */}
         </div>
       </Layout>

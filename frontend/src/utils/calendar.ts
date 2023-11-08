@@ -67,10 +67,13 @@ export const generateWeek = (dateInput = dayjs()) => {
   const firstDateOfWeekNumber = dateInput.startOf('w').date();
 
   for (let i = 0; i < 7; i++) {
+    console.log(firstDateOfWeek);
+    
     const current = firstDateOfWeek.date(firstDateOfWeekNumber + i); 
     weekdays.push({
       base: current,
       name: current.format('ddd'),
+      shortName: current.format('D'),
       formattedDate: current.format('DD-MM-YYYY'),
     });
   }
