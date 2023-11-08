@@ -8,15 +8,19 @@ const WeekView = () => {
   return (
     <div className="row-span-4 text-left gap-2 grid grid-cols-7">
       {
-        weekdays.map((day, i) => {
+        weekdays.map((day) => {
           return (
-            <div key={i} className="bg-[#eee]">
-              <div className="p-3">
+            <div key={day.formattedDate} className="h-full flex flex-col">
+              <div className="p-3 bg-[#eee]">
                 <p>{day.name}</p>
                 <p>{day.shortName}</p>
               </div>
+              <div className="grid grid-rows-2 gap-3 h-full">
+                <div className="h-full bg-[#999]"></div>
+                <div className="h-full bg-[#999]"></div>
+              </div>
             </div>
-          )
+          );
         })
       }
     </div>
