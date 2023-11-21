@@ -37,28 +37,6 @@ const DesktopAppRoutes = ({ role }: IAppRoutes) => {
         <Outlet />
         {/* </div> */}
       </div>
-      <div>
-        <Routes>
-          <Route path="/" element={<LoginView />} />
-          <Route path="/app">
-            <Route index path="/app" element={<ProfilePicker />} />
-            <Route path="/app/volunteer">
-              <Route index={true} element={<Help role={role} />} />
-              <Route path="booking" element={<Booking />} />
-              <Route path="urgent" element={<Urgent />} />
-            </Route>
-            <Route path="/app/manager">
-              <Route index={true} element={<Help role={role} />} />
-              {/* <Route path="booking" element={<Booking />} /> */}
-              {/* <Route path="urgent" element={<Urgent />} /> */}
-            </Route>
-          </Route>
-          {/* Create route for both volunteer and manager Mostly will have shared UI */}
-        </Routes>
-        {/* <div className="flex"> */}
-        <Outlet />
-        {/* </div> */}
-      </div>
     </div>
   );
 };

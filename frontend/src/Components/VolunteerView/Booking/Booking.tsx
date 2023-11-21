@@ -42,14 +42,32 @@ const Booking = () => {
     // container
     // component needs to escape body/root
     // <div className="w-screen bg-yellow-500">
-    <div className="w-screen overflow-x-hidden">
-      <Strip className="bg-clr-contrast text-slate-900 rounded-r-2xl" heading="calendar" position={0} currentPosition={currentPosition} changeCurrentPositionHandler={changeCurrentPositionHandler} />
-      <Strip className="bg-clr-gradTwo text-clr-primary rounded-l-2xl" heading="availability" position={1} currentPosition={currentPosition} changeCurrentPositionHandler={changeCurrentPositionHandler} />
+    <div className="w-screen md:w-full overflow-x-hidden">
+      <Strip
+        className="bg-clr-contrast text-slate-900 rounded-r-2xl"
+        heading="calendar"
+        position={0}
+        currentPosition={currentPosition}
+        changeCurrentPositionHandler={changeCurrentPositionHandler}
+      />
+      <Strip
+        className="bg-clr-gradTwo text-clr-primary rounded-l-2xl"
+        heading="availability"
+        position={1}
+        currentPosition={currentPosition}
+        changeCurrentPositionHandler={changeCurrentPositionHandler}
+      />
+      {/* <div
+        style={{
+          transform: `translateX(${-currentPosition * 100}vw)`,
+        }}
+        className="flex overflow-x-scroll"
+      > */}
       <div
         style={{
           transform: `translateX(${-currentPosition * 100}vw)`,
         }}
-        className="flex w-[200vw] transition-transform relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] items-stretch"
+        className="flex w-[200vw] transition-transform relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] items-stretch md:w-[200%] md:ml-0 md:mr-0 md:left-0"
       >
         <AppCalendar
           today={today}
@@ -61,6 +79,7 @@ const Booking = () => {
         />
         <Availability selectedDate={selectedDate} />
       </div>
+      {/* </div> */}
     </div>
   );
 };

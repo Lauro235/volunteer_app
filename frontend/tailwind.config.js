@@ -31,6 +31,7 @@ export default {
       },
       screens: {
         xsm: "450px",
+        hideweek: { 'raw': '(max-height: 600px)' },
       },
     },
   },

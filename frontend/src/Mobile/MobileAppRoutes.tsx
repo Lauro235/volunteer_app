@@ -37,11 +37,11 @@ const MobileAppRoutes = ({ role }: IAppRoutes) => {
               {/* <Route path="urgent" element={<Urgent />} /> */}
             </Route>
           </Route>
-          {/* Create route for both volunteer and manager Mostly will have shared UI */}
+          
         </Routes>
-        {/* <div className="flex"> */}
+
         <Outlet />
-        {/* </div> */}
+
       </div>
     </div>
   );

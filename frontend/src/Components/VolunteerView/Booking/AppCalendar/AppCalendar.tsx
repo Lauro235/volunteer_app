@@ -24,9 +24,9 @@ const AppCalendar = ({today, selectedDate, previousMonthHandler, currentDayHandl
         className="w-full h-full overflow-visible justify-self-stretch"
       >
         <div
-          className="grid w-4/5 h-full gap-2 px-2 py-4 mx-auto rounded-2xl bg-clr-contrast sm:flex"
+          className="grid w-4/5 h-full gap-2 px-2 py-4 mx-auto rounded-2xl bg-clr-contrast sm:flex md:w-full"
         >
-          <div className="hidden sm:flex">
+          <div className="hidden sm:flex md:hidden">
             <CalendarForm selectedDate={selectedDate} />
           </div>
           <div className="grid">
